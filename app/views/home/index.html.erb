@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <h3>掲示板へようこそ</h3><br>
+
+      <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
+        <!-- ユーザーがログインしていた時の処理 -->
+        <h5> 現在 <%= current_user.name %> さんがログインしています </h5> <!-- ここを追加します -->
+        <h5> メールアドレス： <%= current_user.email %> </h5>
+      <% else %>
+        <!-- ユーザーがログインしていなかった時の処理 -->
+        <h2> 現在ログインしていません </h2>
+        <%= link_to "ログイン", new_user_session_path, class: 'post' %> <!-- ログイン画面に移行する -->
+        <%= link_to "新規登録", new_user_registration_path, class: 'post' %> <!-- 新規登録画面に移行する -->
+      <% end %>
+    </div>
+  </div>
+</div>

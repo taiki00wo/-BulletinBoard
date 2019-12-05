@@ -1,0 +1,5 @@
+<%= link_to 'スレッド一覧', boards_path %>
+<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<%- if current_user.nil? && devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%= link_to "ユーザー新規登録", new_registration_path(resource_name) %>
+<% end %>
